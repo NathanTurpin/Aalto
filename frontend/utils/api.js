@@ -134,6 +134,33 @@ export async function getPageData({ slug, locale, preview }) {
                       ...FileParts
                     }
                   }
+                  ... on ComponentSectionsProjectsWidget {
+                    id
+                    bureau1{
+                      ...FileParts
+                    }
+                    bureau2{
+                      ...FileParts
+                    }
+                    bureau3{
+                      ...FileParts
+                    }
+                    bureau4{
+                      ...FileParts
+                    }
+                    restaurant1{
+                      ...FileParts
+                    }
+                    restaurant2{
+                      ...FileParts
+                    }
+                    restaurant3{
+                      ...FileParts
+                    }
+                    restaurant4{
+                      ...FileParts
+                    } 
+                  }
                   ... on ComponentSectionsFeatureColumnsGroup {
                     id
                     features {
