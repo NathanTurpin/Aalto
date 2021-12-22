@@ -1,22 +1,266 @@
 @tailwind base;
 @tailwind components;
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+@font-face {
+  font-family: "Mulish";
+  src: local("Mulish"), url(./fonts/Mulish-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "GalleryModern";
+  src: local("GalleryModern"), url(./fonts/GalleryModern.woff2) format("woff2");
+}
 @tailwind utilities;
 
+:root {
+  --color-yellow-10: #f5efe8;
+  --color-yellow-30: #e9d8c9;
+  --color-yellow-100: #b47b48;
+  --color-brown-light: #e4d8c0;
+  --color-brown-dark: #daccb1;
+  --color-green: #d7d9cd;
+  --color-grey: #d4d7d6;
+  --color-dark: #282423;
+
+  --spacing-xs: 0.8rem;
+  --spacing-sm: 1.6rem;
+  --spacing-md: 2.4rem;
+  --spacing-lg: 3.2rem;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --border-radius-sm: 1.6rem;
+  --border-radius-md: 2.4rem;
+
+  --box-shadow-md: 0 0 0.4rem rgba(0, 0, 0, 0.25);
+}
+
 html {
-  font-size: 13px;
-  @apply text-gray-900;
+  line-height: 28px;
+  font-weight: var(--font-weight-normal);
+  color: var(--color-dark);
 }
 
-@media screen and (min-width: 640px) {
-  html {
-    font-size: 14px;
+main {
+  margin-top: 80px;
+}
+
+section .container {
+  min-height: 960px;
+}
+
+main > div,
+section > div {
+  border-left: 1px solid var(--color-yellow-30);
+  border-right: 1px solid var(--color-yellow-30);
+}
+
+.subtitles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtitle-right {
+  text-align: right;
+}
+
+.steps {
+  position: absolute;
+  top: 0;
+  right: 45%;
+  height: 1500px;
+  z-index: 1;
+}
+
+.img-step {
+  position: absolute;
+  border: 1px solid var(--color-dark);
+}
+
+.img-step1 {
+  width: 285px;
+  transform: rotate(-18.15deg);
+}
+.img-step2 {
+  width: 450px;
+  top: 300px;
+  transform: rotate(-5deg);
+}
+.img-step3 {
+  width: 300px;
+  top: 700px;
+  transform: rotate(11.12deg);
+}
+
+/* .txt-steps {
+  position: absolute;
+  top: 0;
+  right: 45%;
+  height: 500px;
+  z-index: 1;
+} */
+
+.txt-step {
+  position: absolute;
+}
+
+.txt-step1 {
+  width: 400px;
+  top: 1250px;
+  transform: rotate(-18.15deg);
+}
+.txt-step2 {
+  width: 400px;
+  top: 1550px;
+  transform: rotate(-5deg);
+}
+.txt-step3 {
+  width: 400px;
+  top: 1950px;
+  transform: rotate(11.12deg);
+}
+
+.rounded-img {
+  width: "530px" !important;
+  height: "530px";
+  border-radius: "99999px";
+  border: "1px solid var(--color-dark)";
+  /* object-fit: contain; */
+}
+
+.projets a {
+  font-family: GalleryModern, serif;
+  font-size: 90px;
+  color: white;
+  opacity: 0.4;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  margin-top: 22px;
+  line-height: 110px;
+}
+
+.projets a:hover {
+  color: black;
+  opacity: initial;
+}
+
+.projets a.first-child {
+  margin-top: initial;
+}
+
+/* Mobile */
+@media screen and (max-width: 743px) {
+  .container {
+    max-width: calc(100% - 12px) !important;
+    padding: 20px;
+  }
+  nav .container {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  .container {
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+  }
+  .subtitle {
+    font-size: 0.75rem;
+    max-width: 125px;
+  }
+  .left-column {
+    max-width: 300px;
+  }
+  h1 {
+    margin: 4.25rem auto;
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
+  h2 {
+    font-size: 2.375rem;
+    line-height: 3.125rem;
+  }
+  .dreams h2 {
+    max-width: 250px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  p {
+    font-size: 0.875;
   }
 }
 
-@media screen and (min-width: 768px) {
-  html {
-    font-size: 15px;
+/* Tablet */
+@media screen and (min-width: 744px) {
+  .container {
+    max-width: calc(100% - 16px) !important;
+    padding: 3rem;
   }
+  p {
+    font-size: 1.125rem;
+  }
+  .left-column {
+    max-width: 645px;
+  }
+  h1 {
+    margin: 180px auto;
+    font-size: 5rem;
+    line-height: 5.5rem;
+  }
+  h2 {
+    font-size: 4rem;
+    line-height: 4.5rem;
+  }
+  .dreams h2 {
+    max-width: 300px;
+  }
+  h3 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+
+/* Laptop */
+@media screen and (min-width: 1128px) {
+  .container {
+    max-width: calc(100% - 32px) !important;
+    padding: 68px;
+  }
+
+  .vision .container {
+    padding-top: 12.5rem;
+    padding-bottom: 10rem;
+  }
+
+  h1 {
+    margin: 180px 0;
+    font-size: 7.5rem;
+    line-height: 8.75rem;
+    max-width: 645px;
+  }
+  h2 {
+    font-size: 5.625rem;
+    line-height: 6.875rem;
+  }
+  .dreams h2 {
+    max-width: 500px;
+  }
+  h3 {
+    font-size: 4.25rem;
+    line-height: 5rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: calc(min(1920px, 100%) - 32px);
+    padding: 68px;
+  }
+}
+
+h1,
+h2,
+h3 {
+  @apply font-serif;
 }
 
 .rich-text-hero a {

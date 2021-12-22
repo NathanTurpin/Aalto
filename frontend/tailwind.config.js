@@ -1,13 +1,29 @@
-const { colors } = require(`tailwindcss/defaultTheme`)
+const { colors } = require(`tailwindcss/defaultTheme`);
 
 module.exports = {
   mode: "jit", // see https://tailwindcss.com/docs/just-in-time-mode
   purge: ["./components/**/*.js", "./pages/**/*.js"],
   darkMode: false, // or "media" or "class"
   theme: {
+    fontFamily: {
+      sans: ['"Mulish"', "ui-sans-serif", "system-ui"],
+      serif: ['"GalleryModern"', "ui-serif", "Georgia"],
+      mono: ["ui-monospace", "SFMono-Regular"],
+      display: ["Oswald"],
+      body: ['"Mulish"'],
+    },
+    container: {
+      padding: "4.5rem",
+    },
     extend: {
       colors: {
-        primary: colors.indigo,
+        transparent: "transparent",
+        "yellow-10": "#F5EFE8",
+        "yellow-30": "#E9D8C9",
+        "yellow-100": "#B47B48",
+        dark: "#282423",
+        grey: "#D4D7D6",
+        "grey-30": "#BFBEBD",
       },
       container: {
         center: true,
@@ -22,10 +38,57 @@ module.exports = {
       md: "768px",
       lg: "1024px",
       xl: "1280px",
+      "2xl": "1920px",
+    },
+    spacing: {
+      px: "1px",
+      0: "0",
+      0.5: "0.125rem",
+      1: "0.25rem",
+      1.5: "0.375rem",
+      2: "0.5rem",
+      2.5: "0.625rem",
+      3: "0.75rem",
+      3.5: "0.875rem",
+      4: "1rem",
+      5: "1.25rem",
+      6: "1.5rem",
+      7: "1.75rem",
+      8: "2rem",
+      9: "2.25rem",
+      10: "2.5rem",
+      11: "2.75rem",
+      12: "3rem",
+      14: "3.5rem",
+      16: "4rem",
+      18: "4.5rem",
+      20: "5rem",
+      24: "6rem",
+      28: "7rem",
+      30: "1.875rem",
+      32: "8rem",
+      36: "9rem",
+      40: "2.5rem",
+      44: "11rem",
+      48: "12rem",
+      50: "3.125rem",
+      52: "13rem",
+      56: "14rem",
+      60: "3.75rem",
+      64: "4rem",
+      68: "4.25rem",
+      70: "4.375rem",
+      72: "18rem",
+      80: "20rem",
+      90: "5.625rem",
+      96: "24rem",
+      250: "15.625rem",
+      500: "31.25rem",
+      960: "60rem",
     },
   },
   variants: {
     extend: {},
   },
   plugins: [require("@tailwindcss/typography")],
-}
+};
