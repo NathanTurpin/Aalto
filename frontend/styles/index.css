@@ -249,6 +249,8 @@ section > div {
   }
 }
 
+
+
 /* Desktop */
 @media screen and (min-width: 1440px) {
   .container {
