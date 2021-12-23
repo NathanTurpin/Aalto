@@ -19,7 +19,7 @@ const ProjectsWidget = ({ data }) => {
   const [img2url, setImg2url] = useState(data.bureau2.data.attributes.url);
   const [img3url, setImg3url] = useState(data.bureau3.data.attributes.url);
   const [img4url, setImg4url] = useState(data.bureau4.data.attributes.url);
-
+  const [imgUrls, setImgUrls] = useState([]);
   // if (bureauIsShown) {
   //   this.setImg1({ img1: data.bureau1.data.attributes.url });
   //   this.setImg2({ img2: data.bureau2.data.attributes.url });
@@ -34,20 +34,14 @@ const ProjectsWidget = ({ data }) => {
   //   this.setImg4({ img2: data.restaurant4.data.attributes.url });
   // }
 
-  const updateStyleAndUrl = () => {
+  const updateStyleAndUrl = (type) => {
     // setStyle("cont2"); this.props.data.id;
-    setImg1url(
-      getStrapiMedia("data." + this.props.data.id + "1.data.attributes.url")
-    );
-    setImg2url(
-      getStrapiMedia("data." + this.props.data.id + "2.data.attributes.url")
-    );
-    setImg3url(
-      getStrapiMedia("data." + this.props.data.id + "3.data.attributes.url")
-    );
-    setImg4url(
-      getStrapiMedia("data." + this.props.data.id + "4.data.attributes.url")
-    );
+    const newUrls = [];
+    for (let i = 1 ; i < 5 ; i = i + 1) {
+      newUrls.push(getStrapiMedia(`data.${type}${i}.data.attributes.url`))
+      console.log(newUrls)
+    }
+    setImgUrls(newUrls)
   };
 
   return (
@@ -64,7 +58,7 @@ const ProjectsWidget = ({ data }) => {
                   <a
                     id="bureau"
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl()}
+                    onMouseEnter={() => updateStyleAndUrl('bureau')}
                     // onMouseEnter={() => setBureauIsShown(true)}
                     // onMouseLeave={() => setRestaurantIsShown(false)}
                     // onMouseLeave={() => setMedicalIsShown(false)}
@@ -77,7 +71,7 @@ const ProjectsWidget = ({ data }) => {
                   <a
                     id="restaurant"
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl()}
+                    onMouseEnter={() => updateStyleAndUrl('restaurant')}
                     // onMouseEnter={() => setBureauIsShown(false)}
                     // onMouseLeave={() => setRestaurantIsShown(true)}
                     // onMouseLeave={() => setMedicalIsShown(false)}
@@ -90,7 +84,7 @@ const ProjectsWidget = ({ data }) => {
                   <a
                     id="medical"
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl()}
+                    onMouseEnter={() => updateStyleAndUrl('medical')}
                     // onMouseEnter={() => setBureauIsShown(false)}
                     // onMouseLeave={() => setRestaurantIsShown(false)}
                     // onMouseLeave={() => setMedicalIsShown(true)}
@@ -103,7 +97,7 @@ const ProjectsWidget = ({ data }) => {
                   <a
                     id="industrie"
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl()}
+                    onMouseEnter={() => updateStyleAndUrl('industrie')}
                     // onMouseEnter={() => setBureauIsShown(false)}
                     // onMouseLeave={() => setRestaurantIsShown(false)}
                     // onMouseLeave={() => setMedicalIsShown(false)}
@@ -140,7 +134,7 @@ const ProjectsWidget = ({ data }) => {
             <div className="hidden md:flex flex-col gap-90 mt-90 ml-auto">
               <img
                 className="img1"
-                src={img1url}
+                src={imgUrls[0]}
                 alt=""
                 style={{
                   width: "345px",
@@ -151,7 +145,7 @@ const ProjectsWidget = ({ data }) => {
               />
               <img
                 className="img3 ml-auto"
-                src={img2url}
+                src={imgUrls[2]}
                 alt=""
                 style={{
                   width: "270px",
@@ -164,7 +158,7 @@ const ProjectsWidget = ({ data }) => {
             <div className="hidden md:flex flex-col gap-90">
               <img
                 className="img2"
-                src={img3url}
+                src={imgUrls[1]}
                 alt=""
                 style={{
                   width: "340px",
@@ -175,7 +169,7 @@ const ProjectsWidget = ({ data }) => {
               />
               <img
                 className="img4"
-                src={img4url}
+                src={imgUrls[3]}
                 alt=""
                 style={{
                   width: "560px",
