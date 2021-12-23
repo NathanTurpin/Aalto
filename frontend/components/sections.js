@@ -9,6 +9,7 @@ import RichText from "./sections/rich-text";
 import Pricing from "./sections/pricing";
 import LeadForm from "./sections/lead-form";
 import ProjectsWidget from "./sections/projects-widget";
+import HorizontalScrollSections from "./sections/horizontal-scroll-sections";
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -22,6 +23,7 @@ const sectionComponents = {
   ComponentSectionsPricing: Pricing,
   ComponentSectionsLeadForm: LeadForm,
   ComponentSectionsProjectsWidget: ProjectsWidget,
+  ComponentSectionsHorizontalScrollSections: HorizontalScrollSections,
 };
 
 // Display a section individually

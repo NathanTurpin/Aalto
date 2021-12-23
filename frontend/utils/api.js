@@ -160,6 +160,40 @@ export async function getPageData({ slug, locale, preview }) {
                     restaurant4{
                       ...FileParts
                     } 
+                    medical1{
+                      ...FileParts
+                    }
+                    medical2{
+                      ...FileParts
+                    }
+                    medical3{
+                      ...FileParts
+                    }
+                    medical4{
+                      ...FileParts
+                    } 
+                    industrie1{
+                      ...FileParts
+                    }
+                    industrie2{
+                      ...FileParts
+                    }
+                    industrie3{
+                      ...FileParts
+                    }
+                    industrie4{
+                      ...FileParts
+                    } 
+                  }
+                   ... on ComponentSectionsHorizontalScrollSections{
+                    id
+                    intersection
+                    engagement
+                    simplicite
+                    facetteCreative
+                    facetteCollaborative
+                    facetteResponsable
+                    contact
                   }
                   ... on ComponentSectionsFeatureColumnsGroup {
                     id
