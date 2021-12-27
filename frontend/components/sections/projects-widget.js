@@ -2,48 +2,132 @@ import NextImage from "../elements/image";
 import { useState } from "react";
 import { getStrapiMedia } from "utils/media";
 
-const ProjectsWidget = ({ data }) => {
-  // state = {
-  //   img1url: getStrapiMedia(data.bureau1.data.attributes.url),
-  //   img2url: getStrapiMedia(data.bureau2.data.attributes.url),
-  //   img3url: getStrapiMedia(data.bureau3.data.attributes.url),
-  //   img4url: getStrapiMedia(data.bureau4.data.attributes.url),
-  // }
+const mockedData = {
+  bureau: {
+    bureau1: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/345/440?random=1',
+        },
+      },
+    },
+    bureau2: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/270/220?random=1',
+        },
+      },
+    },
+    bureau3: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/340/190?random=1',
+        },
+      },
+    },
+    bureau4: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/560/430?random=1',
+        },
+      },
+    },
+  },
+  restaurant: {
+    restaurant1: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/345/440?random=2',
+        },
+      },
+    },
+    restaurant2: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/270/220?random=2',
+        },
+      },
+    },
+    restaurant3: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/340/190?random=2',
+        },
+      },
+    },
+    restaurant4: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/560/430?random=2',
+        },
+      },
+    },
+  },
+  medical: {
+    medical1: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/345/440?random=3',
+        },
+      },
+    },
+    medical2: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/270/220?random=3',
+        },
+      },
+    },
+    medical3: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/340/190?random=3',
+        },
+      },
+    },
+    medical4: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/560/430?random=3',
+        },
+      },
+    },
+  },
+  industrie: {
+    industrie1: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/345/440?random=4',
+        },
+      },
+    },
+    industrie2: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/270/220?random=4',
+        },
+      },
+    },
+    industrie3: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/340/190?random=4',
+        },
+      },
+    },
+    industrie4: {
+      data: {
+        attributes: {
+          url: 'https://picsum.photos/560/430?random=4',
+        },
+      },
+    },
+  },
+};
 
-  const [bureauIsShown, setBureauIsShown] = useState(true);
-  const [restaurantIsShown, setRestaurantIsShown] = useState(false);
-  const [medicalIsShown, setMedicalIsShown] = useState(false);
-  const [industrieIsShown, setIndustrieIsShown] = useState(false);
-
-  const [img1url, setImg1url] = useState(data.bureau1.data.attributes.url);
-  const [img2url, setImg2url] = useState(data.bureau2.data.attributes.url);
-  const [img3url, setImg3url] = useState(data.bureau3.data.attributes.url);
-  const [img4url, setImg4url] = useState(data.bureau4.data.attributes.url);
-  const [imgUrls, setImgUrls] = useState([]);
-  // if (bureauIsShown) {
-  //   this.setImg1({ img1: data.bureau1.data.attributes.url });
-  //   this.setImg2({ img2: data.bureau2.data.attributes.url });
-  //   this.setImg3({ img2: data.bureau3.data.attributes.url });
-  //   this.setImg4({ img2: data.bureau4.data.attributes.url });
-  // }
-
-  // if (restaurantIsShown) {
-  //   () => setImg1({ img1: data.restaurant1.data.attributes.url });
-  //   this.setImg2({ img2: data.restaurant.data.attributes.url });
-  //   this.setImg3({ img2: data.restaurant3.data.attributes.url });
-  //   this.setImg4({ img2: data.restaurant4.data.attributes.url });
-  // }
-
-  const updateStyleAndUrl = (type) => {
-    // setStyle("cont2"); this.props.data.id;
-    const newUrls = [];
-    for (let i = 1 ; i < 5 ; i = i + 1) {
-      newUrls.push(getStrapiMedia(`data.${type}${i}.data.attributes.url`))
-      console.log(newUrls)
-    }
-    setImgUrls(newUrls)
-  };
-
+const ProjectsWidget = () => {
+  const [activeGallery, setActiveGallery] = useState('bureau');
+  
   return (
     <>
       <section className="projets">
@@ -53,16 +137,12 @@ const ProjectsWidget = ({ data }) => {
               <p className="subtitle subtitle-left uppercase tracking-wide mt-90 mb-30">
                 projets
               </p>
-              <ul onMouseLeave={() => setRestaurantIsShown(false)}>
+              <ul>
                 <li>
                   <a
                     id="bureau"
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl('bureau')}
-                    // onMouseEnter={() => setBureauIsShown(true)}
-                    // onMouseLeave={() => setRestaurantIsShown(false)}
-                    // onMouseLeave={() => setMedicalIsShown(false)}
-                    // onMouseLeave={() => setIndustrieIsShown(false)}
+                    onMouseEnter={() => setActiveGallery('bureau')}
                   >
                     Bureaux
                   </a>
@@ -71,11 +151,7 @@ const ProjectsWidget = ({ data }) => {
                   <a
                     id="restaurant"
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl('restaurant')}
-                    // onMouseEnter={() => setBureauIsShown(false)}
-                    // onMouseLeave={() => setRestaurantIsShown(true)}
-                    // onMouseLeave={() => setMedicalIsShown(false)}
-                    // onMouseLeave={() => setIndustrieIsShown(false)}
+                    onMouseEnter={() => setActiveGallery('restaurant')}
                   >
                     Restaurants
                   </a>
@@ -84,11 +160,7 @@ const ProjectsWidget = ({ data }) => {
                   <a
                     id="medical"
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl('medical')}
-                    // onMouseEnter={() => setBureauIsShown(false)}
-                    // onMouseLeave={() => setRestaurantIsShown(false)}
-                    // onMouseLeave={() => setMedicalIsShown(true)}
-                    // onMouseLeave={() => setIndustrieIsShown(false)}
+                    onMouseEnter={() => setActiveGallery('medical')}
                   >
                     Médical
                   </a>
@@ -97,11 +169,7 @@ const ProjectsWidget = ({ data }) => {
                   <a
                     id="industrie"
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl('industrie')}
-                    // onMouseEnter={() => setBureauIsShown(false)}
-                    // onMouseLeave={() => setRestaurantIsShown(false)}
-                    // onMouseLeave={() => setMedicalIsShown(false)}
-                    // onMouseLeave={() => setIndustrieIsShown(true)}
+                    onMouseEnter={() => setActiveGallery('industrie')}
                   >
                     Industrie
                   </a>
@@ -127,14 +195,12 @@ const ProjectsWidget = ({ data }) => {
                   </svg>
                 </div>
                 <p className="link ml-4">Voir tous nos projets</p>
-                <p>{/* {JSON.stringify()} */}</p>
               </div>
             </div>
-            {/* <NextImage media={data.bureau1} /> */}
             <div className="hidden md:flex flex-col gap-90 mt-90 ml-auto">
               <img
                 className="img1"
-                src={imgUrls[0]}
+                src={mockedData[activeGallery][`${activeGallery}1`].data.attributes.url}
                 alt=""
                 style={{
                   width: "345px",
@@ -145,7 +211,7 @@ const ProjectsWidget = ({ data }) => {
               />
               <img
                 className="img3 ml-auto"
-                src={imgUrls[2]}
+                src={mockedData[activeGallery][`${activeGallery}2`].data.attributes.url}
                 alt=""
                 style={{
                   width: "270px",
@@ -158,7 +224,7 @@ const ProjectsWidget = ({ data }) => {
             <div className="hidden md:flex flex-col gap-90">
               <img
                 className="img2"
-                src={imgUrls[1]}
+                src={mockedData[activeGallery][`${activeGallery}3`].data.attributes.url}
                 alt=""
                 style={{
                   width: "340px",
@@ -169,7 +235,7 @@ const ProjectsWidget = ({ data }) => {
               />
               <img
                 className="img4"
-                src={imgUrls[3]}
+                src={mockedData[activeGallery][`${activeGallery}4`].data.attributes.url}
                 alt=""
                 style={{
                   width: "560px",
