@@ -42,10 +42,6 @@ html {
   color: var(--color-dark);
 }
 
-main {
-  margin-top: 80px;
-}
-
 section .container {
   min-height: 960px;
 }
@@ -54,6 +50,12 @@ main > div,
 section > div {
   border-left: 1px solid var(--color-yellow-30);
   border-right: 1px solid var(--color-yellow-30);
+}
+
+section > div.white-borders,
+footer > div {
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
 }
 
 .subtitles {
@@ -91,6 +93,11 @@ section > div {
   width: 300px;
   top: 700px;
   transform: rotate(11.12deg);
+}
+
+.daaaltocode section,
+.daaaltocode section > div {
+  height: 100vh;
 }
 
 /* .txt-steps {
@@ -148,19 +155,59 @@ section > div {
   margin-top: initial;
 }
 
+.facette-creative {
+  left: 27vw;
+}
+
+.facette-collaborative {
+  right: 20vw;
+}
+
+.facette-responsable.md {
+  right: 20vw;
+}
+
+.contactez-nous svg {
+  background: url(http://localhost:1337/uploads/thumbnail_porte_52714a4ae2.png?updated_at=2021-12-24T02:22:56.729Z)
+    no-repeat center;
+  background-size: 61%;
+}
+
+input {
+  outline: 0 !important;
+  border-width: 0 0 2px 0;
+  border-color: #b47b4880;
+}
+input:focus {
+  border-color: #282423;
+}
+
+form {
+  margin-top: 80px;
+  width: 650px;
+}
+
+form button {
+  background-color: var(--color-dark);
+  color: var(--color-yellow-10);
+}
+
+::placeholder {
+  color: #b47b4880;
+}
+
 /* Mobile */
 @media screen and (max-width: 743px) {
   .container {
-    max-width: calc(100% - 12px) !important;
+    width: 96.2vw !important;
     padding: 20px;
-  }
-  nav .container {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-  }
-  .container {
     padding-top: 4.375rem;
     padding-bottom: 4.375rem;
+  }
+  nav .container {
+    height: 9.45vh;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
   .subtitle {
     font-size: 0.75rem;
@@ -183,6 +230,14 @@ section > div {
     text-align: center;
     margin: 0 auto;
   }
+  h3 {
+    font-size: 2.375rem;
+    line-height: 3.125rem;
+  }
+  h4 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
   p {
     font-size: 0.875;
   }
@@ -190,8 +245,16 @@ section > div {
 
 /* Tablet */
 @media screen and (min-width: 744px) {
+  nav .container {
+    height: 9.45vh;
+  }
+
+  main .container {
+    padding: 16.85vh 6.3vw 6.3vw 5vh;
+  }
+
   .container {
-    max-width: calc(100% - 16px) !important;
+    max-width: 97.76vw !important;
     padding: 3rem;
   }
   p {
@@ -216,16 +279,16 @@ section > div {
     font-size: 2rem;
     line-height: 2.5rem;
   }
+  h4 {
+    font-size: 2.225rem;
+    line-height: 1.5rem;
+  }
 }
 
 /* Laptop */
 @media screen and (min-width: 1128px) {
-  .container {
-    max-width: calc(100% - 32px) !important;
-    padding: 68px;
-  }
-
-  .vision .container {
+  .vision .container,
+  .aaltocode .container {
     padding-top: 12.5rem;
     padding-bottom: 10rem;
   }
@@ -235,6 +298,16 @@ section > div {
     font-size: 7.5rem;
     line-height: 8.75rem;
     max-width: 645px;
+  }
+
+  .contact-page {
+    margin-top: 60px;
+  }
+
+  .contact-page h1 {
+    margin: 80px 0 200px 0;
+
+    max-width: initial;
   }
   h2 {
     font-size: 5.625rem;
@@ -247,9 +320,11 @@ section > div {
     font-size: 4.25rem;
     line-height: 5rem;
   }
+  h4 {
+    font-size: 2.5rem;
+    line-height: 1.5rem;
+  }
 }
-
-
 
 /* Desktop */
 @media screen and (min-width: 1440px) {
@@ -261,7 +336,8 @@ section > div {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   @apply font-serif;
 }
 
