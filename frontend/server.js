@@ -21,7 +21,7 @@ app.prepare().then(() => {
     } else {
       handle(req, res, parsedUrl);
     }
-  }).listen(300, (err) => {
+  }).listen(3001, (err) => {
     if (err) throw err;
     console.log(`Go > http://localhost:${port}`);
   });
