@@ -146,13 +146,28 @@ footer > div {
   line-height: 110px;
 }
 
-.projets a:hover {
+.projets a:hover,
+#bureau {
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
   color: black;
   opacity: initial;
 }
 
+.projets a:hover::before {
+  content: url(http://localhost:1337/uploads/surround_bef86b0a61.svg);
+  position: absolute;
+  left: -1rem;
+  top: -2rem;
+}
+
 .projets a.first-child {
   margin-top: initial;
+}
+
+.projectWidgetLink {
 }
 
 .facette-creative {

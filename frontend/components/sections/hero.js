@@ -7,51 +7,49 @@ import NextImage from "../elements/image";
 const Hero = ({ data }) => {
   return (
     <>
-      {
-        <main className="bg-yellow-10">
-          <div className="container relative">
-            <div className="subtitles">
-              <p className="subtitle subtitle-left uppercase tracking-wide">
-                {data.accroche}
+      <main className="bg-yellow-10">
+        <div className="container relative">
+          <div className="subtitles">
+            <p className="subtitle subtitle-left uppercase tracking-wide">
+              {data.accroche}
+            </p>
+            <p className="subtitle subtitle-right uppercase tracking-wide ">
+              {data.metier}
+            </p>
+          </div>
+          <div className="flex flex-col justify-start md:justify-between md:items-center gap-10 lg:flex-row ">
+            <div className="left-column">
+              <h1>
+                {data.titre}
+                <span className="text-yellow-100">*</span>
+              </h1>
+              <p className="text-3xl text-yellow-100 font-serif absolute sm:left-1 md:left-12">
+                *
               </p>
-              <p className="subtitle subtitle-right uppercase tracking-wide ">
-                {data.metier}
-              </p>
+              <div className="flex rich-text-hero">
+                <Markdown>{data.asterisque}</Markdown>
+              </div>
             </div>
-            <div className="flex flex-col justify-start md:justify-between md:items-center gap-10 lg:flex-row ">
-              <div className="left-column">
-                <h1>
-                  {data.titre}
-                  <span className="text-yellow-100">*</span>
-                </h1>
-                <p className="text-3xl text-yellow-100 font-serif absolute sm:left-1 md:left-12">
-                  *
-                </p>
-                <div className="flex rich-text-hero">
-                  <Markdown>{data.asterisque}</Markdown>
-                </div>
+            <div className="steps">
+              <div className="img-step img-step1 ">
+                <NextImage media={data.image1} />
               </div>
-              <div className="steps">
-                <div className="img-step img-step1 ">
-                  <NextImage media={data.image1} />
-                </div>
-                <div className="img-step img-step2 ">
-                  <NextImage media={data.image2} />
-                </div>
-                <div className="img-step img-step3">
-                  <NextImage media={data.image3} />
-                </div>
-                <h2 className="txt-step txt-step1">créer un impact ?</h2>
-                <h2 className="txt-step txt-step2">
-                  attirer et retenir les talents ?
-                </h2>
-                <h2 className="txt-step txt-step3">être plus créatif ?</h2>
+              <div className="img-step img-step2 ">
+                <NextImage media={data.image2} />
               </div>
+              <div className="img-step img-step3">
+                <NextImage media={data.image3} />
+              </div>
+              <h2 className="txt-step txt-step1">créer un impact ?</h2>
+              <h2 className="txt-step txt-step2">
+                attirer et retenir les talents ?
+              </h2>
+              <h2 className="txt-step txt-step3">être plus créatif ?</h2>
             </div>
           </div>
-        </main>
-      }
-      {/* <section>
+        </div>
+      </main>
+      <section>
         <div className="container flex items-center">
           <div className="flex flex-col justify-start md:justify-between md:items-center gap-60 lg:flex-row">
             <div>
@@ -72,8 +70,8 @@ const Hero = ({ data }) => {
             <h2 className=" text-yellow-100">Comment</h2>
           </div>
         </div>
-      </section> */}
-      {/* <section className="dreams bg-yellow-10 z-40">
+      </section>
+      <section className="dreams bg-yellow-10 z-40">
         <div className="container relative justify-start flex flex-col lg:flex-row md:justify-between gap-60">
           <div className="flex flex-col">
             <h2>Nous vous aidons à faire la différence</h2>
@@ -109,8 +107,9 @@ const Hero = ({ data }) => {
             </div>
           </div>
         </div>
-      </section> */}
-      {/* <section className="vision">
+      </section>
+
+      <section className="vision">
         <div className="container">
           <div className="m-auto flex flex-col gap-50">
             <p className="subtitle subtitle-left uppercase tracking-wide mx-auto my-0">
@@ -130,7 +129,7 @@ const Hero = ({ data }) => {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </>
   );
 };

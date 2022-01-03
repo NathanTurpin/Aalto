@@ -136,54 +136,67 @@ export async function getPageData({ slug, locale, preview }) {
                   }
                   ... on ComponentSectionsProjectsWidget {
                     id
-                    bureau1{
-                      ...FileParts
+                    bureau {
+                      id
+                      photo1 {
+                        ...FileParts
+                      }
+                      photo2 {
+                        ...FileParts
+                      }
+                      photo3 {
+                        ...FileParts
+                      }
+                      photo4 {
+                        ...FileParts
+                      }
                     }
-                    bureau2{
-                      ...FileParts
+                    restaurant {
+                      id
+                      photo1 {
+                        ...FileParts
+                      }
+                      photo2 {
+                        ...FileParts
+                      }
+                      photo3 {
+                        ...FileParts
+                      }
+                      photo4 {
+                        ...FileParts
+                      }
                     }
-                    bureau3{
-                      ...FileParts
+                    medical {
+                      id
+                      photo1 {
+                        ...FileParts
+                      }
+                      photo2 {
+                        ...FileParts
+                      }
+                      photo3 {
+                        ...FileParts
+                      }
+                      photo4 {
+                        ...FileParts
+                      }
                     }
-                    bureau4{
-                      ...FileParts
-                    }
-                    restaurant1{
-                      ...FileParts
-                    }
-                    restaurant2{
-                      ...FileParts
-                    }
-                    restaurant3{
-                      ...FileParts
-                    }
-                    restaurant4{
-                      ...FileParts
-                    } 
-                    medical1{
-                      ...FileParts
-                    }
-                    medical2{
-                      ...FileParts
-                    }
-                    medical3{
-                      ...FileParts
-                    }
-                    medical4{
-                      ...FileParts
-                    } 
-                    industrie1{
-                      ...FileParts
-                    }
-                    industrie2{
-                      ...FileParts
-                    }
-                    industrie3{
-                      ...FileParts
-                    }
-                    industrie4{
-                      ...FileParts
-                    } 
+                    industrie {
+                      id
+                      photo1 {
+                        ...FileParts
+                      }
+                      photo2 {
+                        ...FileParts
+                      }
+                      photo3 {
+                        ...FileParts
+                      }
+                      photo4 {
+                        ...FileParts
+                      }
+                    }                                      
+               
                   }
                    ... on ComponentSectionsHorizontalScrollSections{
                     id

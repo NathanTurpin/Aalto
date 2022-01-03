@@ -2,61 +2,32 @@ import NextImage from "../elements/image";
 import { useState } from "react";
 import { getStrapiMedia } from "utils/media";
 import { getStrapiURL } from "utils/media";
+// import ProjectWidgetLink from "../elements/project-widget-link";
 
 const ProjectsWidget = ({ data }) => {
-  const [img1url, setImg1url] = useState(
-    getStrapiURL(data.bureau1.data.attributes.url)
-  );
-  const [img2url, setImg2url] = useState(
-    getStrapiURL(data.bureau2.data.attributes.url)
-  );
-  const [img3url, setImg3url] = useState(
-    getStrapiURL(data.bureau3.data.attributes.url)
-  );
-  const [img4url, setImg4url] = useState(
-    getStrapiURL(data.bureau4.data.attributes.url)
-  );
+  const [activeGallery, setActiveGallery] = useState("bureau");
 
-  const updateStyleAndUrl = (type) => {
-    switch (type) {
-      case "bureau":
-        setImg1url(getStrapiURL(data.bureau1.data.attributes.url));
-        setImg2url(getStrapiURL(data.bureau2.data.attributes.url));
-        setImg3url(getStrapiURL(data.bureau3.data.attributes.url));
-        setImg4url(getStrapiURL(data.bureau4.data.attributes.url));
+  const applyHoverEffect = (e) => {
+    let projectwidgetlink =
+      document.getElementsByClassName("projectwidgetlink");
 
-      case "restaurant":
-        setImg1url(getStrapiURL(data.restaurant1.data.attributes.url));
-        setImg2url(getStrapiURL(data.restaurant2.data.attributes.url));
-        setImg3url(getStrapiURL(data.restaurant3.data.attributes.url));
-        setImg4url(getStrapiURL(data.restaurant4.data.attributes.url));
-
-      case "medical":
-        console.log(data.medical1.data.attributes.url);
-        setImg1url(getStrapiURL(data.medical1.data.attributes.url));
-        setImg2url(getStrapiURL(data.medical2.data.attributes.url));
-        setImg3url(getStrapiURL(data.medical3.data.attributes.url));
-        setImg4url(getStrapiURL(data.medical4.data.attributes.url));
-
-      case "industrie":
-        setImg1url(getStrapiURL(data.industrie1.data.attributes.url));
-        setImg2url(getStrapiURL(data.industrie2.data.attributes.url));
-        setImg3url(getStrapiURL(data.industrie3.data.attributes.url));
-        setImg4url(getStrapiURL(data.industrie4.data.attributes.url));
-      default:
+    for (let i = 0; i < projectwidgetlink.length; i++) {
+      projectwidgetlink[i].style.background = "";
+      projectwidgetlink[i].style.color = "white";
+      projectwidgetlink[i].style.opacity = "0.4";
     }
 
-    // const newUrls = [];
-    // for (let i = 1; i < 5; i = i + 1) {
-    //   newUrls.push(
-    //     getStrapiMedia(
-    //       "/" +
-    //         { ["data" + type + i + ".data.attributes.alternativeText"]: newUrls[i] }
-    //     )
-    //   );
-    //   console.log(newUrls);
-    // }
-    // setImgUrls(newUrls);
+    // e.target.style.background =
+    //   "no-repeat url(http://localhost:1337/uploads/surround_bef86b0a61.svg)";
+    e.target.style.color = "black";
+    e.target.style.opacity = "initial";
+
+    setActiveGallery(e.target.id);
+  };
+
+  const disableHoverEffect = (e) => {
+    e.target.style.background = "";
+    e.target.style.color = "white";
   };
 
   return (
@@ -73,8 +44,9 @@ const ProjectsWidget = ({ data }) => {
                 <li>
                   <a
                     id="bureau"
+                    class="projectwidgetlink relative"
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl("bureau")}
+                    onMouseEnter={applyHoverEffect}
                   >
                     Bureaux
                   </a>
@@ -82,8 +54,9 @@ const ProjectsWidget = ({ data }) => {
                 <li>
                   <a
                     id="restaurant"
+                    class="projectwidgetlink relative"
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl("restaurant")}
+                    onMouseEnter={applyHoverEffect}
                   >
                     Restaurants
                   </a>
@@ -91,8 +64,9 @@ const ProjectsWidget = ({ data }) => {
                 <li>
                   <a
                     id="medical"
+                    class="projectwidgetlink relative"
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl("medical")}
+                    onMouseEnter={applyHoverEffect}
                   >
                     Médical
                   </a>
@@ -100,14 +74,15 @@ const ProjectsWidget = ({ data }) => {
                 <li>
                   <a
                     id="industrie"
+                    class="projectwidgetlink "
                     href="#"
-                    onMouseEnter={() => updateStyleAndUrl("industrie")}
+                    onMouseEnter={applyHoverEffect}
                   >
                     Industrie
                   </a>
                 </li>
               </ul>
-              <div className="flex items-center mt-40">
+              {/* <div className="flex items-center mt-40">
                 <div className="arrow">
                   <svg
                     width="29"
@@ -127,14 +102,16 @@ const ProjectsWidget = ({ data }) => {
                   </svg>
                 </div>
                 <p className="link ml-4">Voir tous nos projets</p>
-                <p>{/* {JSON.stringify()} */}</p>
-              </div>
+              </div> */}
+              {/* <p>{JSON.stringify(data.bureau.photo1)}</p> */}
             </div>
-            {/* <NextImage media={data.bureau1} /> */}
+            {/* <NextImage media={data.bureau.photo1} /> */}
             <div className="hidden md:flex flex-col gap-90 mt-90 ml-auto">
               <img
                 className="img1"
-                src={img1url}
+                src={getStrapiURL(
+                  data[activeGallery]["photo1"].data.attributes.url
+                )}
                 alt=""
                 style={{
                   width: "345px",
@@ -145,7 +122,9 @@ const ProjectsWidget = ({ data }) => {
               />
               <img
                 className="img3 ml-auto"
-                src={img3url}
+                src={getStrapiURL(
+                  data[activeGallery]["photo3"].data.attributes.url
+                )}
                 alt=""
                 style={{
                   width: "270px",
@@ -158,7 +137,9 @@ const ProjectsWidget = ({ data }) => {
             <div className="hidden md:flex flex-col gap-90">
               <img
                 className="img2"
-                src={img2url}
+                src={getStrapiURL(
+                  data[activeGallery]["photo2"].data.attributes.url
+                )}
                 alt=""
                 style={{
                   width: "340px",
@@ -169,7 +150,9 @@ const ProjectsWidget = ({ data }) => {
               />
               <img
                 className="img4"
-                src={img4url}
+                src={getStrapiURL(
+                  data[activeGallery]["photo4"].data.attributes.url
+                )}
                 alt=""
                 style={{
                   width: "560px",
