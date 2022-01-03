@@ -29,7 +29,7 @@ const Navbar = ({ navbar, pageContext }) => {
           <div className="flex flex-row items-center">
             <Link href="/">
               <a className="h-14 w-48">
-                <NextImage width="190" height="54" media={navbar.logo} />
+                <NextImage width="120" height="54" media={navbar.logo} />
               </a>
             </Link>
             {/* List of links on desktop */}

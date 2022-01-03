@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_sections_horizontal_scroll_sections",
+  "info": {
+    "displayName": "horizontal scroll sections",
+    "icon": "arrow-right"
+  },
+  "options": {},
+  "attributes": {
+    "intersection": {
+      "type": "richtext"
+    },
+    "engagement": {
+      "type": "richtext"
+    },
+    "simplicite": {
+      "type": "richtext"
+    },
+    "facetteCreative": {
+      "type": "richtext"
+    },
+    "facetteCollaborative": {
+      "type": "richtext"
+    },
+    "facetteResponsable": {
+      "type": "richtext"
+    },
+    "contact": {
+      "type": "richtext"
+    }
+  }
+}

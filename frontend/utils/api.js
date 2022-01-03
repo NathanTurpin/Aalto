@@ -134,6 +134,80 @@ export async function getPageData({ slug, locale, preview }) {
                       ...FileParts
                     }
                   }
+                  ... on ComponentSectionsProjectsWidget {
+                    id
+                    bureau {
+                      id
+                      photo1 {
+                        ...FileParts
+                      }
+                      photo2 {
+                        ...FileParts
+                      }
+                      photo3 {
+                        ...FileParts
+                      }
+                      photo4 {
+                        ...FileParts
+                      }
+                    }
+                    restaurant {
+                      id
+                      photo1 {
+                        ...FileParts
+                      }
+                      photo2 {
+                        ...FileParts
+                      }
+                      photo3 {
+                        ...FileParts
+                      }
+                      photo4 {
+                        ...FileParts
+                      }
+                    }
+                    medical {
+                      id
+                      photo1 {
+                        ...FileParts
+                      }
+                      photo2 {
+                        ...FileParts
+                      }
+                      photo3 {
+                        ...FileParts
+                      }
+                      photo4 {
+                        ...FileParts
+                      }
+                    }
+                    industrie {
+                      id
+                      photo1 {
+                        ...FileParts
+                      }
+                      photo2 {
+                        ...FileParts
+                      }
+                      photo3 {
+                        ...FileParts
+                      }
+                      photo4 {
+                        ...FileParts
+                      }
+                    }                                      
+               
+                  }
+                   ... on ComponentSectionsHorizontalScrollSections{
+                    id
+                    intersection
+                    engagement
+                    simplicite
+                    facetteCreative
+                    facetteCollaborative
+                    facetteResponsable
+                    contact
+                  }
                   ... on ComponentSectionsFeatureColumnsGroup {
                     id
                     features {

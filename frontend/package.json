@@ -6,12 +6,15 @@
     "dev": "next",
     "develop": "next",
     "build": "next build",
-    "start": "next start",
+    "startdo": "next start -H 0.0.0.0 -p ${PORT:-8080}",
+    "start": "NODE_ENV=production node server.js",
+    "export": "npm run build && next export -o _static",
     "lint": "next lint",
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
+    "api-utils": "0.0.2",
     "classnames": "^2.2.6",
     "cookie": "^0.4.1",
     "date-fns": "2.14.0",
@@ -26,6 +29,7 @@
     "react-dom": "^17.0.0",
     "react-icons": "^3.10.0",
     "react-markdown": "^6.0.2",
+    "react-motion": "^0.5.2",
     "tailwindcss": "^2.2.6",
     "yup": "^0.32.8"
   },

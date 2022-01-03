@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_sections_projects_widgets",
+  "info": {
+    "displayName": "projects widget",
+    "icon": "border-all",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "bureau": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.project-widget-category"
+    },
+    "restaurant": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.project-widget-category"
+    },
+    "medical": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.project-widget-category"
+    },
+    "industrie": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.project-widget-category"
+    }
+  }
+}
