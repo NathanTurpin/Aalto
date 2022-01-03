@@ -6,7 +6,8 @@
     "dev": "next",
     "develop": "next",
     "build": "next build",
-    "start": "next start -H 0.0.0.0 -p ${PORT:-8080}",
+    "startdo": "next start -H 0.0.0.0 -p ${PORT:-8080}",
+    "start": "NODE_ENV=production node server.js",
     "export": "npm run build && next export -o _static",
     "lint": "next lint",
     "lint:fix": "next lint --fix"
